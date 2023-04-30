@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C24B28DA-F4EE-4655-B26E-61C7000860E2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StaffForms</RootNamespace>
+    <AssemblyName>StaffForms</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\DAL\bin\Debug\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Account.cs" />
+    <Compile Include="Class\Command\ExportCommand.cs" />
+    <Compile Include="Class\Command\SelectQRCommand.cs" />
+    <Compile Include="Class\Command\UpdateCommand.cs" />
+    <Compile Include="Class\Facade\RepositoryFacade.cs" />
+    <Compile Include="Class\Factory\FormFactory.cs" />
+    <Compile Include="Class\Item.cs" />
+    <Compile Include="Class\Command\AddItemCommand.cs" />
+    <Compile Include="Class\Command\CellClickCommand.cs" />
+    <Compile Include="Class\Command\CommandInvoker.cs" />
+    <Compile Include="Class\Command\ICommand.cs" />
+    <Compile Include="Class\ItemInformationControl.cs" />
+    <Compile Include="Class\ItemList.cs" />
+    <Compile Include="Class\Command\ResetAllCommand.cs" />
+    <Compile Include="Class\Command\ResetCommand.cs" />
+    <Compile Include="Class\QRCoderManager.cs" />
+    <Compile Include="Class\QRData.cs" />
+    <Compile Include="Class\Repository\AccountantRepository.cs" />
+    <Compile Include="Class\Repository\IAccountantRepository.cs" />
+    <Compile Include="Class\Repository\IIncludeImportedItemsRepository.cs" />
+    <Compile Include="Class\Repository\IItemRepository.cs" />
+    <Compile Include="Class\Repository\IncludeImportedItemsRepository.cs" />
+    <Compile Include="Class\Repository\ItemRepository.cs" />
+    <Compile Include="Class\Repository\IWarehouseReceiptRepository.cs" />
+    <Compile Include="Class\Repository\IWarehouseStaffRepository.cs" />
+    <Compile Include="Class\Repository\WarehouseReceiptRepository.cs" />
+    <Compile Include="Class\Repository\WarehouseStaffRepository.cs" />
+    <Compile Include="GoodsReceivingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoodsReceivingForm.Designer.cs">
+      <DependentUpon>GoodsReceivingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QRCodeScannerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QRCodeScannerForm.designer.cs">
+      <DependentUpon>QRCodeScannerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class\ValidationStrategy\PasswordValidationStrategy.cs" />
+    <Compile Include="Class\ValidationStrategy\UsernameValidationStrategy.cs" />
+    <Compile Include="Class\ValidationStrategy\IValidationStrategy.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Class\ValidationStrategy\EmptyValidationStrategy.cs" />
+    <Compile Include="Class\ValidationStrategy\IntegerValidationStrategy.cs" />
+    <Compile Include="Class\ValidationStrategy\NameValidationStrategy.cs" />
+    <Compile Include="Class\ValidationStrategy\ValidationContext.cs" />
+    <EmbeddedResource Include="GoodsReceivingForm.resx">
+      <DependentUpon>GoodsReceivingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QRCodeScannerForm.resx">
+      <DependentUpon>QRCodeScannerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{452a8e5d-4eaa-46d1-9c6e-f04911fb56c4}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\secrecy-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
